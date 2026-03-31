@@ -1,0 +1,19 @@
+//Little instrument by joyLife
+
+#include <Adafruit_CircuitPlayground.h>
+
+int value;
+int freq;
+
+void setup() {
+  CircuitPlayground.begin();
+  Serial.begin(9600);
+}
+
+void loop() {
+  value = analogRead(A3);
+  Serial.println(value);
+  
+  freq=map(value,0,700,100,1000);
+  CircuitPlayground.playTone(freq,500);
+}
